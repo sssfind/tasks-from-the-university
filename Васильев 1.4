@@ -1,0 +1,35 @@
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+const double g = 9.8;
+
+int main() {
+	int H, V;
+	double t, x, y, T, alpha;
+
+	cout << "H: ";
+	cin >> H;
+
+	cout << "V: ";
+	cin >> V;
+
+	cout << "alpha in degrees: ";
+	cin >> alpha;
+	alpha = alpha * M_PI / 180;
+
+
+	cout << "t: ";
+	cin >> t;
+
+	T = V * sin(alpha) / g * (1 + sqrt(1 + 2 * g * H / (V * V * pow(sin(alpha), 2))));
+
+	x = T < t ? V * T * cos(alpha) : V * t * cos(alpha);
+
+	y = T < t ? 0 : H + V * t * sin(alpha) - g * t * t / 2;
+
+	cout << "\nCoordinates: (" << x << ", " << y << ")" << endl;
+	cout << "T = " << T;
+	return 0;
+}
