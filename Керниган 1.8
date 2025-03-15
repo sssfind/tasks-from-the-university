@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+	int space, tab, new_l;
+	char symbol;
+	space = 0;
+	tab = 0;
+	new_l = 0;
+	cout << "Enter string: ";
+	while ((symbol = cin.get()) != '.') {
+		if (symbol == ' ')
+			++space;
+		if (symbol == '\t')
+			++tab;
+		if (symbol == '\n')
+			++new_l;
+	}
+	cout << "space:" << space << "\n";
+	cout << "tabulation: " << tab << "\n";
+	cout << "string: " << new_l;
+	return 0;
+}
